@@ -72,8 +72,32 @@ describe "Tic Tac Toe, in arrays" do
   end
 
   describe "testing who won" do
-    xit "determines whether X or O won" do
-      winner = ___
+    it "determines whether X or O won" do
+
+      winner = ''                           # This ignores diagonal wins
+      row_of_xs = ['X', 'X', 'X']
+      row_of_os = ['O', 'O', 'O']
+
+      data.each do |row|
+        if row == row_of_xs
+          winner = 'X'
+        elsif row == row_of_os
+          winner = 'O'
+        else
+          winner = ''
+        end
+      end
+
+      data.transpose.each do |row|
+        if row == row_of_xs
+          winner = 'X'
+        elsif row == row_of_os
+          winner = 'O'
+        else
+          winner = ''
+        end
+      end
+
       expect(winner).to be == 'O'
     end
   end
